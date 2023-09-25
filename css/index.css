@@ -1,0 +1,19 @@
+body{
+    margin: 0 0 0 0;
+    background-color: rgb(32, 32, 32);
+}
+
+.center-vertical{
+    width:100%;
+    position:absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.center-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
