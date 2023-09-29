@@ -1,5 +1,5 @@
 // const targetDate = new Date('2024-02-14T11:00:00Z');
-const targetDate = new Date().setSeconds(new Date().getSeconds() + 1),
+const targetDate = new Date().setSeconds(new Date().getSeconds() + 2),
     interval = setInterval(updateTimer, 100);
 var firstFrame = true
 var body = document.body,
@@ -10,9 +10,10 @@ var body = document.body,
 /* -------------------------------------------------------------------------- */
 
 function transition(){
-    $("#countdown-page").fadeOut("slow", function(){
-        $("#main-page").fadeIn(2000, function(){
+    $("#countdown-page").fadeOut("fast", function(){
+        $("#main-page").fadeIn(5, function(){
             startIntro()
+            initMainPageVariables()
         })
         
     })
@@ -66,35 +67,21 @@ const starback = new Starback(canvas, {
 })
 
 /* -------------------------------------------------------------------------- */
-/*                               SCROLL ACTIONS                               */
+/*                                 SKETCH FADE                                */
 /* -------------------------------------------------------------------------- */
 
+function sketchFade(){
 
-
-
-window.addEventListener('scroll', () => {
-    var windowHeightCustom = window.innerHeight / 1.2
-    var height = Math.max( body.scrollHeight, body.offsetHeight, 
-        html.clientHeight, html.scrollHeight, html.offsetHeight );
-    let scrollY = window.scrollY;
-    
-    
-
-    bellSketch = document.getElementById("bell-sketch")
-    endSection = document.getElementById("end-section")
-    
-    endSectionBeginning = (scrollY - height + windowHeightCustom * 2)
-    console.log(endSectionBeginning)
-    if(endSectionBeginning > 0){
-
-        bellSketch.style.opacity = ( endSectionBeginning / windowHeightCustom)
-        endSection.style.opacity = ( endSectionBeginning / windowHeightCustom)
-    }   
-    else{
-        bellSketch.style.opacity  = 0
-        endSection.style.opacity  = 0
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
+        bellSketch.fadeIn("slow")
+        endSection.fadeIn("slow")
     }
-})
+    else{
+        bellSketch.fadeOut("fast")
+        endSection.fadeOut("slow")
+
+    }
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                INTRO ACTIONS                               */
@@ -126,18 +113,92 @@ async function standardMessage(element, text){
 }
 
 async function introType(){
-    // element = $("#intro-section h1")
-    // await standardMessage(element, "Hi Bell 😁")
-    // await standardMessage(element, "Happy Valentine's day!")
-    // await standardMessage(element, "Been working on this for some time now")
-    // await standardMessage(element, "Hope you enjoy!!!")
+    element = $("#intro-section h1")
+    await standardMessage(element, "Hi Bell 😁")
+    await standardMessage(element, "Happy Valentine's day!")
+    await standardMessage(element, "I made an album of some of my favorite days hehe")
+    await standardMessage(element, "Hope you enjoy!!!")
 }
 
 async function startIntro(){
-    await introType()
-    $("#main-page-container").fadeIn(3000)
+    // await introType()
+    await $("#main-page-container").fadeIn(3000)
+    // await $("#main-page-container").fadeIn(5)
+    addScrollEvent()
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               PATH DRAWING                                 */
+/* -------------------------------------------------------------------------- */
+
+
+
+function drawScrollPath(){
+    const scrollpercent = (document.body.scrollTop + document.documentElement.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+
+    const draw = length * scrollpercent;
+
+    pathImg.style.strokeDashoffset = length - draw;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                           FRAME OBJECT SCROLLING                           */
+/* -------------------------------------------------------------------------- */
+
+function scrollFrameObjects(){
+    let scrollTop = $(window).scrollTop();
+    windowHeight = 200
+
+    sect1Obj1 = $("#section-1")
+    sect1Obj1Top = sect1Obj1.offset().top;
+    if (scrollTop > sect1Obj1Top || true){
+        topPercent = - (((scrollTop - sect1Obj1Top)/windowHeight) / 2) * 100
+        $("#section-1 .frame-stuff").css('top', topPercent + '%')
+    }
+
+    sect1Obj2 = $("#section-2")
+    sect1Obj2Top = sect1Obj2.offset().top;
+    if (scrollTop > sect1Obj2Top || true){
+        console.log("XXX")
+        console.log(scrollTop)
+        console.log(sect1Obj2Top)
+        topPercent = - (((scrollTop - sect1Obj2Top)/windowHeight) / 4) * 100
+        console.log(topPercent)
+        $("#section-2 .frame-stuff").css('top', topPercent + '%')
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                               INIT FUNCTIONS                               */
+/* -------------------------------------------------------------------------- */
+
+var windowHeightCustom, height, bellSketch, endSection, pathImg, pathImgLength, scrollY
+
+
+function initMainPageVariables(){
+
+    
+    /* -------------------------- Bell Sketch Variables ------------------------- */
+    bellSketch = $("#bell-sketch")
+    endSection = $("#end-section-caption")
+    
+
+    /* ----------------------------- Path variables ----------------------------- */
+    // pathImg = document.getElementById("pathImg");
+    // pathImgLength = pathImg.getTotalLength();
+    // pathImg.style.strokeDasharray = pathImgLength;
+    // pathImg.style.strokeDashoffset = pathImgLength;
+}
+
+function addScrollEvent(){
+    window.addEventListener('scroll', () => {
+        sketchFade()
+        // drawScrollPath()
+        scrollFrameObjects()
+    })
+}
 
 
 $(document).ready(function(){

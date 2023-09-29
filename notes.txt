@@ -1,0 +1,3 @@
+Introtype cursor css does not work if not inline
+
+Resize images
