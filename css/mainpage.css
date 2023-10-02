@@ -68,7 +68,8 @@
 }
 
 .main-page-section{
-    height: auto;
+    /* height: auto; */
+    height: 100rem;
     width: 100%;
     color: white;
     display: flex;
@@ -91,6 +92,7 @@
     justify-content: center;
     overflow: hidden;
     position: relative;
+    border: white solid 0.1rem;
 }
 
 .frame-caption{
@@ -103,6 +105,17 @@
     flex-direction: column;
     max-width: 500px;
     text-align: center;
+}
+
+.frame-stuff{
+    position:absolute;
+    z-index: 2;
+    display:flex;
+    top:0%;
+    height: inherit;
+    width:inherit;
+    align-items: center;
+    justify-content: center;
 }
 
 .frame-caption h1{
@@ -130,21 +143,6 @@
     background-repeat: no-repeat;
 }
 
-#section-discord{
-    flex-direction: column;
-}
-
-.frame-stuff{
-    position:absolute;
-    z-index: 2;
-    display:flex;
-    top:0%;
-    height: inherit;
-    width:inherit;
-    align-items: center;
-    justify-content: center;
-}
-
 #sec-cw-floor{
     width: 25.4375rem;
     height: 45rem;
@@ -162,24 +160,36 @@
     position: absolute;
 }
 
-#discord-iframe{
+#section-discord{
+    flex-direction: column;
+}
+
+#section-discord .frame-content{
     width: 25.4375rem;
     height: 45rem;
 
 }
 
-#end-section{
-    height:100rem;
+#discord-iframe{
+    height:100%;
+    width: 100%;
 }
 
-#bell-sketch{
-    width: 12.5rem;
-    height: 12.5rem;
-    position:fixed;
-    top:100%;
-    left:50%;
-    transform: translate(-50%, -100%);
-    display: None;
+#section-bfday{
+    flex-direction: column;
+}
+
+#section-bfday .frame-content{
+    width: 34rem;
+    height: 45rem;
+    background: url(../assets/pic3.jpg) no-repeat center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+#end-section{
+    height:100rem;
 }
 
 #end-section-caption{
@@ -193,3 +203,14 @@
     text-align: center;
     display: None;
 }
+
+#bell-sketch{
+    width: 12.5rem;
+    height: 12.5rem;
+    position:fixed;
+    top:100%;
+    left:50%;
+    transform: translate(-50%, -100%);
+    display: None;
+}
+
