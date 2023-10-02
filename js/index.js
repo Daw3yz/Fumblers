@@ -1,5 +1,6 @@
-// const targetDate = new Date('2024-02-14T11:00:00Z'),
-const targetDate = new Date().setSeconds(new Date().getSeconds() + 1),
+// const targetDate = new Date('2024-02-14T11:00:00Z'),     // Valentine's
+const targetDate = new Date('2023-12-31T17:00:00Z'),        // New years
+// const targetDate = new Date().setSeconds(new Date().getSeconds() + 1),
     interval = setInterval(updateTimer, 100);
 var firstFrame = true
 var body = document.body,
