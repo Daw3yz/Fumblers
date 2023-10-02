@@ -1,4 +1,4 @@
-// const targetDate = new Date('2024-02-14T11:00:00Z');
+// const targetDate = new Date('2024-02-14T11:00:00Z'),
 const targetDate = new Date().setSeconds(new Date().getSeconds() + 1),
     interval = setInterval(updateTimer, 100);
 var firstFrame = true
@@ -152,21 +152,14 @@ function scrollFrameObjects(){
     let scrollTop = $(window).scrollTop();
     windowHeight = 200
 
-    sect1Obj1 = $("#section-1")
+    sect1Obj1 = $("#section-cw")
     sect1Obj1Top = sect1Obj1.offset().top;
     if (scrollTop > sect1Obj1Top || true){
         topPercent = - (((scrollTop - sect1Obj1Top)/windowHeight)) * 100
-        $("#sec-1-floor").css('top', topPercent/32 + 12 + '%')
-        $("#sec-1-us").css('top', topPercent/32 + 14 + '%')
-        $("#sec-1-us").css('left', topPercent/16 + 14 + '%')
+        $("#sec-cw-floor").css('top', topPercent/32 + 12 + '%')
+        $("#sec-cw-us").css('top', topPercent/32 + 14 + '%')
+        $("#sec-cw-us").css('left', topPercent/16 + 14 + '%')
 
-    }
-
-    sect1Obj2 = $("#section-2")
-    sect1Obj2Top = sect1Obj2.offset().top;
-    if (scrollTop > sect1Obj2Top || true){
-        topPercent = - (((scrollTop - sect1Obj2Top)/windowHeight)) * 100
-        $("#section-2 .frame-stuff").css('top', topPercent/2 + '%')
     }
 }
 

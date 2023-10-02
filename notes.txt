@@ -1,3 +1,10 @@
+Firewall settings:
+Inbound rule: Serve Static Web Page(David)
+
 Introtype cursor css does not work if not inline
 
 Resize images
+
+python -m http.server 8000
+
+chrome://inspect/#devices

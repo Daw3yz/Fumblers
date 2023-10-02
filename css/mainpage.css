@@ -56,6 +56,11 @@
     background-size: 30%; */
 }
 
+#down-arrow{
+    height:5rem;
+    width: 5rem;
+}
+
 #main-page-content{
     padding-top: 3rem;
     z-index: 1;
@@ -113,16 +118,20 @@
     margin-bottom: 0px;
 }
 
-#section-1{
+#section-cw{
     flex-direction: column;
 }
 
-#section-1 .frame-content{
+#section-cw .frame-content{
     width: 25.4rem;
     height: 45rem;
     background: url(../assets/pic1/background.jpg) no-repeat center center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#section-discord{
+    flex-direction: column;
 }
 
 .frame-stuff{
@@ -136,7 +145,7 @@
     justify-content: center;
 }
 
-#sec-1-floor{
+#sec-cw-floor{
     width: 25.4375rem;
     height: 45rem;
     background: url(../assets/pic1/floor.png) no-repeat center center;
@@ -144,7 +153,7 @@
     background-repeat: no-repeat;
     position: absolute;
 }
-#sec-1-us{
+#sec-cw-us{
     width: 25.4375rem;
     height: 45rem;
     background: url(../assets/pic1/us.png) no-repeat center center;
@@ -153,16 +162,11 @@
     position: absolute;
 }
 
-.frame {
-    background-image: url(../assets/frame-top.png), url(../assets/frame-bottom.png), url(../assets/frame-rep.png);
-    background-position: center top, center bottom, center;
-    background-repeat: no-repeat, no-repeat, repeat-y;
-    width: 100%;
-    height: inherit;
-    z-index: 1;
-    position: absolute;
-}
+#discord-iframe{
+    width: 25.4375rem;
+    height: 45rem;
 
+}
 
 #end-section{
     height:100rem;
