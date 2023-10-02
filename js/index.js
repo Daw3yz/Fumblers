@@ -1,5 +1,5 @@
 // const targetDate = new Date('2024-02-14T11:00:00Z');
-const targetDate = new Date().setSeconds(new Date().getSeconds() + 2),
+const targetDate = new Date().setSeconds(new Date().getSeconds() + 1),
     interval = setInterval(updateTimer, 100);
 var firstFrame = true
 var body = document.body,
@@ -72,13 +72,15 @@ const starback = new Starback(canvas, {
 
 function sketchFade(){
 
-    if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
-        bellSketch.fadeIn("slow")
-        endSection.fadeIn("slow")
+    if($(window).scrollTop() + window.innerHeight > $(document).height() - 10) {
+        $('#main-page-canvas').fadeIn(2000, () => {
+            bellSketch.fadeIn("slow")
+            endSection.fadeIn("slow")
+        })
     }
     else{
         bellSketch.fadeOut("fast")
-        endSection.fadeOut("slow")
+        endSection.fadeOut("fast")
 
     }
 }
@@ -113,10 +115,10 @@ async function standardMessage(element, text){
 }
 
 async function introType(){
-    element = $("#intro-section h1")
+    element = $("#intro-section h2")
     await standardMessage(element, "Hi Bell 😁")
     await standardMessage(element, "Happy Valentine's day!")
-    await standardMessage(element, "I made an album of some of my favorite days hehe")
+    await standardMessage(element, "Thought this would be cool")
     await standardMessage(element, "Hope you enjoy!!!")
 }
 
@@ -153,19 +155,18 @@ function scrollFrameObjects(){
     sect1Obj1 = $("#section-1")
     sect1Obj1Top = sect1Obj1.offset().top;
     if (scrollTop > sect1Obj1Top || true){
-        topPercent = - (((scrollTop - sect1Obj1Top)/windowHeight) / 2) * 100
-        $("#section-1 .frame-stuff").css('top', topPercent + '%')
+        topPercent = - (((scrollTop - sect1Obj1Top)/windowHeight)) * 100
+        $("#sec-1-floor").css('top', topPercent/32 + 12 + '%')
+        $("#sec-1-us").css('top', topPercent/32 + 14 + '%')
+        $("#sec-1-us").css('left', topPercent/16 + 14 + '%')
+
     }
 
     sect1Obj2 = $("#section-2")
     sect1Obj2Top = sect1Obj2.offset().top;
     if (scrollTop > sect1Obj2Top || true){
-        console.log("XXX")
-        console.log(scrollTop)
-        console.log(sect1Obj2Top)
-        topPercent = - (((scrollTop - sect1Obj2Top)/windowHeight) / 4) * 100
-        console.log(topPercent)
-        $("#section-2 .frame-stuff").css('top', topPercent + '%')
+        topPercent = - (((scrollTop - sect1Obj2Top)/windowHeight)) * 100
+        $("#section-2 .frame-stuff").css('top', topPercent/2 + '%')
     }
 }
 
