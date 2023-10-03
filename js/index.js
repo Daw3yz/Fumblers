@@ -13,6 +13,7 @@ var body = document.body,
 function transition(){
     $("#countdown-page").fadeOut("fast", function(){
         $("#main-page").fadeIn(5, function(){
+            $('#main-page-canvas').fadeIn(2000)
             startIntro()
             initMainPageVariables()
         })
@@ -74,10 +75,10 @@ const starback = new Starback(canvas, {
 function sketchFade(){
 
     if($(window).scrollTop() + window.innerHeight > $(document).height() - 10) {
-        $('#main-page-canvas').fadeIn(2000, () => {
+        // $('#main-page-canvas').fadeIn(2000, () => {
             bellSketch.fadeIn("slow")
             endSection.fadeIn("slow")
-        })
+        // })
     }
     else{
         bellSketch.fadeOut("fast")
@@ -118,7 +119,7 @@ async function standardMessage(element, text){
 async function introType(){
     element = $("#intro-section h2")
     await standardMessage(element, "Hi Bell 😁")
-    await standardMessage(element, "Happy Anniversary's")
+    await standardMessage(element, "Happy Anniversary")
     await standardMessage(element, "Thought this would be cool")
     await standardMessage(element, "Hope you enjoy!!!")
 }
