@@ -68,8 +68,8 @@
 }
 
 .main-page-section{
-    /* height: auto; */
-    height: 100rem;
+    height: auto;
+    min-height: 100rem;
     width: 100%;
     color: white;
     display: flex;
@@ -118,6 +118,10 @@
     justify-content: center;
 }
 
+.frame-caption{
+    margin-top: 10px;
+}
+
 .frame-caption h1{
     margin-top: 0px;
     margin-bottom: 0px;
@@ -131,6 +135,11 @@
     margin-bottom: 0px;
 }
 
+.line-break{
+    width: 18rem;
+    margin-top: 10px;
+}
+
 #section-cw{
     flex-direction: column;
 }
@@ -138,7 +147,7 @@
 #section-cw .frame-content{
     width: 25.4rem;
     height: 45rem;
-    background: url(../assets/pic1/background.jpg) no-repeat center center;
+    background: url(../assets/cw/background.jpg) no-repeat center center;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -146,15 +155,16 @@
 #sec-cw-floor{
     width: 25.4375rem;
     height: 45rem;
-    background: url(../assets/pic1/floor.png) no-repeat center center;
+    background: url(../assets/cw/floor.png) no-repeat center center;
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
+    /* transform: scale() */
 }
 #sec-cw-us{
     width: 25.4375rem;
     height: 45rem;
-    background: url(../assets/pic1/us.png) no-repeat center center;
+    background: url(../assets/cw/us.png) no-repeat center center;
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
@@ -182,9 +192,53 @@
 #section-bfday .frame-content{
     width: 34rem;
     height: 45rem;
-    background: url(../assets/pic3.jpg) no-repeat center center;
+    background: url(../assets/bfday/pic3.jpg) no-repeat center center;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+#sec-bfday-face{
+    width: 34rem;
+    height: 45rem;
+    background: url(../assets/bfday/face.png) no-repeat center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0;
+}
+#sec-bfday-face:hover{
+    opacity: 100%;
+}
+
+#section-rideon{
+    flex-direction: column;
+}
+
+#section-rideon .frame-content{
+    width: 34rem;
+    height: 39rem;
+    /* background: url(../assets/rideon/background.jpg) no-repeat center center; */
+    background-color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#sec-rideon-background{
+    width: 34rem;
+    height: 39rem;
+    background: url(../assets/rideon/background-unblur.jpg) no-repeat center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+#sec-rideon-us{
+    width: 34rem;
+    height: 39rem;
+    background: url(../assets/rideon/us.png) no-repeat center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
 }
 
 

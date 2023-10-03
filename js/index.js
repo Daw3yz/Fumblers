@@ -1,6 +1,6 @@
 // const targetDate = new Date('2024-02-14T11:00:00Z'),     // Valentine's
-const targetDate = new Date('2023-12-31T17:00:00Z'),        // New years
-// const targetDate = new Date().setSeconds(new Date().getSeconds() + 1),
+// const targetDate = new Date('2023-12-31T17:00:00Z'),        // New years
+const targetDate = new Date().setSeconds(new Date().getSeconds() + 1),
     interval = setInterval(updateTimer, 100);
 var firstFrame = true
 var body = document.body,
@@ -118,13 +118,13 @@ async function standardMessage(element, text){
 async function introType(){
     element = $("#intro-section h2")
     await standardMessage(element, "Hi Bell 😁")
-    await standardMessage(element, "Happy Valentine's day!")
+    await standardMessage(element, "Happy Anniversary's")
     await standardMessage(element, "Thought this would be cool")
     await standardMessage(element, "Hope you enjoy!!!")
 }
 
 async function startIntro(){
-    await introType()
+    // await introType()
     await $("#main-page-container").fadeIn(3000)
     // await $("#main-page-container").fadeIn(5)
     addScrollEvent()
@@ -153,13 +153,21 @@ function scrollFrameObjects(){
     let scrollTop = $(window).scrollTop();
     windowHeight = 200
 
-    sect1Obj1 = $("#section-cw")
-    sect1Obj1Top = sect1Obj1.offset().top;
-    if (scrollTop > sect1Obj1Top || true){
-        topPercent = - (((scrollTop - sect1Obj1Top)/windowHeight)) * 100
-        $("#sec-cw-floor").css('top', topPercent/32 + 12 + '%')
-        $("#sec-cw-us").css('top', topPercent/32 + 14 + '%')
+    sectCw = $("#section-cw")
+    sectCwTop = sectCw.offset().top;
+    if (scrollTop > sectCwTop || true){
+        topPercent = - (((scrollTop - sectCwTop)/windowHeight)) * 100
+        $("#sec-cw-floor").css('top', topPercent/45 + 12 + '%')
+        $("#sec-cw-us").css('top', topPercent/45 + 14 + '%')
         $("#sec-cw-us").css('left', topPercent/16 + 14 + '%')
+
+    }
+
+    sectRideon = $("#section-rideon")
+    sectRideonTop = sectRideon.offset().top;
+    if (scrollTop > sectRideonTop || true){
+        topPercent = (((scrollTop - sectRideonTop)/windowHeight))
+        $("#sec-rideon-background").css('filter', 'blur(' + (topPercent + 0.5) * 0.4 + 'rem)')
 
     }
 }
