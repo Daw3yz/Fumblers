@@ -1,6 +1,8 @@
 // const targetDate = new Date('2024-02-14T11:00:00Z'),     // Valentine's
 // const targetDate = new Date('2023-12-31T17:00:00Z'),        // New years
-const targetDate = new Date().setSeconds(new Date().getSeconds() + 1),
+// const targetDate = new Date('2023-10-04T08:05:00Z'), 
+const targetDate = new Date().setSeconds(new Date().getSeconds() + 10),
+
     interval = setInterval(updateTimer, 100);
 var firstFrame = true
 var body = document.body,
@@ -103,7 +105,6 @@ async function typeWrite(element, text){
 
 async function typeDelete(element, length){
     for(i = length; i>0;i--){
-        console.log(i)
         element.html(element.html().substring(0, i - 1))
         await delay(30)
     }
@@ -125,7 +126,7 @@ async function introType(){
 }
 
 async function startIntro(){
-    // await introType()
+    await introType()
     await $("#main-page-container").fadeIn(3000)
     // await $("#main-page-container").fadeIn(5)
     addScrollEvent()
