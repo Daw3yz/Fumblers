@@ -1,51 +1,61 @@
 <html lang="en" style="font-size: 16px">
 <!-- <html lang="en"> -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.75">
 
     <title>Fumblers Anniversary</title>
-    
-    <link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'/>
+
+    <link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet' />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.3/tsparticles.bundle.min.js"></script>
+    <script src="node_modules/confetti-js/dist/index.min.js"></script>
     <script src="https://unpkg.com/starback@2.1.1/dist/starback.global.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="icon" href="./assets/heart-icon.webp">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/cake.css">
     <link rel="stylesheet" href="./css/countdown.css">
     <link rel="stylesheet" href="./css/mainpage.css">
 
 
 </head>
+
 <body>
-    
+
     <div id="countdown-page">
         <div class="center-vertical">
             <div id="fumblers-loading">
                 <img src="./assets/fumblers-logo.jpg">
                 <img id="heart-icon" src="./assets/heart-icon.webp">
             </div>
-            <div id="clock"><h1></h1></div>
+            <div id="clock">
+                <h1></h1>
+            </div>
         </div>
     </div>
     <div id="main-page">
         <div id="intro-section">
             <h2></h2>
         </div>
-        
+
         <div id="main-page-container">
             <canvas id="main-page-canvas"></canvas>
+            <canvas id="fireworks-canvas"></canvas>
+            <div id="confetti-container"></div>
             <div id="temp-background"></div>
             <div id="main-page-content">
 
-                
+
                 <div class="main-page-section" id="section-scroll-down" style="height:60vw;">
                     <div class="frame-caption col">
                         <h1 style="font-family: Caveat;">Scroll down</h1>
                         <img src="./assets/down-arrow.png" id="down-arrow">
                     </div>
-                </div>  
+                </div>
 
                 <div class="main-page-section" id="section-rideon">
                     <div class="frame-content col">
@@ -57,7 +67,8 @@
                     <div class="frame-caption col">
                         <h1>Ride On Hangout</h1>
                         <h2>April 21, 2023</h2>
-                        <p>This was the moment we actually began to get close. We went to Bentoya for lunch and had a conversation about 
+                        <p>This was the moment we actually began to get close. We went to Bentoya for lunch and had a
+                            conversation about
                             your experience in romance. Haha, that aged well. We hung out in phillips
                             that night and had our first deep conversation.
                         </p>
@@ -76,9 +87,12 @@
                     <div class="frame-caption col">
                         <h1>Ciputra World Date</h1>
                         <h2>Aug 17, 2023</h2>
-                        <p>Actually a surprisingly fun day. We went to Ciputra world and had Carnaby's, then we walked around IKEA and met your teacher Mr. Fabio, 
-                            you called me Felisho. Then we went around shopping and you put me in that stupid thrift shop jacket HAHAHA. We got some boba after and hung
-                            out around the parking lot, that was real fun. After that came the volunteer's dinner and we won absolutely nothing... But at least we won each other???
+                        <p>Actually a surprisingly fun day. We went to Ciputra world and had Carnaby's, then we walked
+                            around IKEA and met your teacher Mr. Fabio,
+                            you called me Felisho. Then we went around shopping and you put me in that stupid thrift
+                            shop jacket HAHAHA. We got some boba after and hung
+                            out around the parking lot, that was real fun. After that came the volunteer's dinner and we
+                            won absolutely nothing... But at least we won each other???
                         </p>
                     </div>
 
@@ -93,13 +107,17 @@
                     <div class="frame-caption col">
                         <h1>Boyfriend's day</h1>
                         <h2>Sept 30, 2023???</h2>
-                        <p>Pic says Oct 3, but you gave it earlier cuz u cudn't wait... It was also the day I got Rocket and the heart letter you gave me. That was one long ass letter hahaha.
-                            Made me realize, getting stuff actually feels pretty nice. It's nice because it reminds me HOW MUCH YOU SIMP FOR ME.
-                            
+                        <p>Pic says Oct 3, but you gave it earlier cuz u cudn't wait... It was also the day I got Rocket
+                            and the heart letter you gave me. That was one long ass letter hahaha.
+                            Made me realize, getting stuff actually feels pretty nice. It's nice because it reminds me
+                            HOW MUCH YOU SIMP FOR ME.
+
                         </p>
                         <p>
-                            I loved every word, I kept hearing your voice reading it, yek. Thank you for being your usual hyper self while writing it, the letter really shows you had fun writing it. 
-                            In fact, ur hyper self is kinda what completes me yk, dead guy with a girl full of life. Try hovering over the photo btw...
+                            I loved every word, I kept hearing your voice reading it, yek. Thank you for being your
+                            usual hyper self while writing it, the letter really shows you had fun writing it.
+                            In fact, ur hyper self is kinda what completes me yk, dead guy with a girl full of life. Try
+                            hovering over the photo btw...
                         </p>
                     </div>
 
@@ -110,13 +128,106 @@
                     <div class="frame-content col">
                         <iframe src="./discord-ori.html" frameborder="0" id="discord-iframe"></iframe>
                     </div>
-                    
+
                     <div class="frame-caption col">
                         <h1>Our discord chats</h1>
                         <h2></h2>
-                        <p>Ohh man, can't forget these. Discord chat's were probably where we spent the most time together. All the memories we had
-                            just doing stupid stuff til we slept on call. Even though we were busy at school or work we still
-                            wanted to be present for each other. Aunty Ita, if you're reading this, don't worry, pretty sure we both still got things done. </p>
+                        <p>Ohh man, can't forget these. Discord chat's were probably where we spent the most time
+                            together. All the memories we had
+                            just doing stupid stuff til we slept on call. Even though we were busy at school or work we
+                            still
+                            wanted to be present for each other. Aunty Ita, if you're reading this, don't worry, pretty
+                            sure we both still got things done. </p>
+                    </div>
+
+                    <img src="./assets/line-break.svg" class="line-break">
+                </div>
+
+                <div class="main-page-section" id="section-date-1">
+                    <div class="frame-content col">
+                    </div>
+                    <div class="frame-caption col">
+                        <h1>Jatim Park Trip</h1>
+                        <p>
+                            Our first amusement park date hehe. We had a lot of fun that time, even though we were both
+                            tired from the trip and mad sweaty. Favorite moment wasn't really romantic seh, it was the
+                            bull ride WKWKWK. Still, it was another beautiful memory with you. Truly one for the books
+                        </p>
+                    </div>
+
+                    <img src="./assets/line-break.svg" class="line-break">
+                </div>
+
+                <div class="main-page-section" id="section-date-2">
+                    <div class="frame-content col">
+                        <div class="frame-content frame-content-2-1 col">
+                        </div>
+
+                        <div class="frame-content frame-content-2-2 col">
+                        </div>
+                    </div>
+                    <div class="frame-caption col">
+                        <h1>Our Birthdaysss</h1>
+                        <p>
+                            We both surprised each other on our birthdays. I remember the absolute crazy amount of
+                            effort
+                            you put into your crafts. I loved every single gift you gave. Especially the tiara, made me
+                            feel like
+                            my true self heehee. And although you may not have felt like your birthday was the best, I
+                            still
+                            had a lot of fun prepping it and hanging out, I hope it was still a happy memory for you
+                            too.
+                        </p>
+
+                    </div>
+
+                    <img src="./assets/line-break.svg" class="line-break">
+                </div>
+
+                <div class="main-page-section" id="section-date-3">
+                    <div class="frame-content col">
+                        <div class="frame-content frame-content-3-1 col">
+                        </div>
+                        <div class="frame-content frame-content-3-2 col">
+                        </div>
+                        <div class="frame-content frame-content-3-3 col">
+                        </div>
+                    </div>
+                    <div class="frame-content col" style="margin-top: 15px;">
+                        <div class="frame-content frame-content-3-4 col">
+                        </div>
+                        <div class="frame-content frame-content-3-5 col">
+                        </div>
+                    </div>
+                    <div class="frame-caption col">
+                        <h1>Goofy and Fun Moments</h1>
+                        <p>
+                            Can't forget these memories. I've always loved how a regular hangout with us can have the
+                            dumbest or most fun crap
+                            happen. Like that roblox giant, the stupid jacket. It's always a fun moment with you
+                        </p>
+                    </div>
+
+                    <img src="./assets/line-break.svg" class="line-break">
+                </div>
+
+                <div class="main-page-section" id="section-date-4">
+                    <div class="frame-content col" style="height: 25rem;">
+                        <div class="frame-content frame-content-4-1 col">
+                        </div>
+                    </div>
+                    <div class="frame-content col">
+                        <div class="frame-content frame-content-4-2 col">
+                        </div>
+                        <div class="frame-content frame-content-4-3 col">
+                        </div>
+                    </div>
+                    <div class="frame-caption col">
+                        <h1>Memories</h1>
+                        <p>
+                            And of course, the little souvenirs and memories we get to keep with us. It's always sweet
+                            to look back and see how happy we are with each other. Gaddamn cheesy
+                        </p>
                     </div>
 
                     <img src="./assets/line-break.svg" class="line-break">
@@ -128,7 +239,7 @@
                         <h1 style="font-family: Caveat;">Scroll to the edge</h1>
                         <img src="./assets/down-arrow.png" id="down-arrow">
                     </div>
-                </div>  
+                </div>
 
 
                 <div class="main-page-section" id="end-section">
@@ -142,11 +253,13 @@
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
 
     </div>
+
     <script src="./js/index.js"></script>
 </body>
+
 </html>
