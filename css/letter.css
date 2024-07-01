@@ -131,6 +131,8 @@
 }
 
 .no-anim {
+    padding-bottom: 60px;
+    overflow-y: scroll;
     animation: none;
 }
 
