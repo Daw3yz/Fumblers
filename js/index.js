@@ -157,7 +157,7 @@ async function introType() {
 }
 
 async function startIntro() {
-    // await introType()
+    await introType()
     await $("#main-page-container").fadeIn(3000)
     // await $("#main-page-container").fadeIn(5)
     addScrollEvent()
