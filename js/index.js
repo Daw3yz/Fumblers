@@ -13,6 +13,11 @@ var body = document.body,
 
 const container = document.querySelector('#fireworks-canvas')
 const fireworks = new Fireworks.default(container)
+fireworks.updateOptions({
+    intensity: 15,
+    traceSpeed: 0.8,
+    // gravity: 3,
+})
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 
