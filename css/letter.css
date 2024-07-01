@@ -33,7 +33,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
-    overflow: hidden;
+    overflow-y: scroll;
     animation-name: openmsg;
     animation-duration: 2s;
     animation-timing-function: linear;
@@ -132,7 +132,6 @@
 
 .no-anim {
     padding-bottom: 60px;
-    overflow-y: scroll;
     animation: none;
 }
 
