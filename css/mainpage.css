@@ -447,6 +447,20 @@
     border: white solid 0.1rem;
 }
 
+#section-love-letter {
+    flex-direction: column;
+}
+
+#section-love-letter .frame-content {
+    width: 70rem;
+    height: 35rem;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: white solid 0.1rem;
+    overflow-y: scroll;
+}
+
 #end-section {
     height: 100rem;
 }
